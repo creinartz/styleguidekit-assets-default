@@ -37,11 +37,10 @@ var patternFinder = {
 		// initialize the bloodhound suggestion engine
 		patterns.initialize();
 		
-		$('#sg-find .typeahead').typeahead({ highlight: true }, {
+		$('.sg-find .typeahead').typeahead({ highlight: true }, {
 			displayKey: 'patternPartial',
 			source: patterns.ttAdapter()
-		});
-		//.on('typeahead:selected', patternFinder.onAutocompleted).on('typeahead:autocompleted', patternFinder.onSelected);
+		}).on('typeahead:selected', patternFinder.onAutocompleted).on('typeahead:autocompleted', patternFinder.onSelected);
 		
 	},
 	
@@ -70,16 +69,16 @@ var patternFinder = {
 	
 	openFinder: function() {
 		patternFinder.active = true;
-		$('#sg-find .typeahead').val("");
-		$("#sg-find").addClass('show-overflow');
-		$('#sg-find .typeahead').focus();
+		$('.sg-find .typeahead').val("");
+		$(".sg-find").addClass('show-overflow');
+		$('.sg-find .typeahead').focus();
 	},
 	
 	closeFinder: function() {
 		patternFinder.active = false;
-		$("#sg-find").removeClass('show-overflow');
+		$(".sg-find").removeClass('show-overflow');
 		$('.sg-acc-handle, .sg-acc-panel').removeClass('active');
-		$('#sg-find .typeahead').val("");
+		$('.sg-find .typeahead').val("");
 	},
 	
 	receiveIframeMessage: function(event) {
@@ -108,13 +107,13 @@ patternFinder.init();
 
 window.addEventListener("message", patternFinder.receiveIframeMessage, false);
 
-$('#sg-find .typeahead').focus(function() {
+$('.sg-find .typeahead').focus(function() {
 	if (!patternFinder.active) {
 		patternFinder.openFinder();
 	}
 });
 
-$('#sg-find .typeahead').blur(function() {
+$('.sg-find .typeahead').blur(function() {
 	patternFinder.closeFinder();
 });
 
