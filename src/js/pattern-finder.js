@@ -107,6 +107,7 @@ patternFinder.init();
 
 window.addEventListener("message", patternFinder.receiveIframeMessage, false);
 
+/*
 $('.sg-find .typeahead').focus(function() {
 	if (!patternFinder.active) {
 		patternFinder.openFinder();
@@ -116,6 +117,7 @@ $('.sg-find .typeahead').focus(function() {
 $('.sg-find .typeahead').blur(function() {
 	patternFinder.closeFinder();
 });
+*/
 
 // jwerty stuff
 // toggle the annotations panel
