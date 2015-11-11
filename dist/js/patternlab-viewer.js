@@ -1511,6 +1511,11 @@ window.addEventListener("message", receiveIframeMessage, false);
 		return false;
 	});
 
+	// rtl mode
+	$('#sg-mode-rtl').on('click', function() {
+		console.log("rtl-mode");
+	});
+
 	//Stephen Hay Mode - "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!"
 	$('#sg-size-hay').on("click", function(e){
 		e.preventDefault();
@@ -1948,6 +1953,7 @@ window.addEventListener("message", receiveIframeMessage, false);
 	}*/
 	
 })(this);
+
 /*!
  * Plugin Loader
  *
