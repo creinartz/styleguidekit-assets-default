@@ -219,7 +219,7 @@
 		body.attr('dir', 'rtl');
 		var newhref = href.replace("style.css", "style-rtl.css");
 		link.attr('href', newhref);
-		$(this).hide();
+		$(this).addClass("sg-mode-rtl--active");
 	});
 
 	//Stephen Hay Mode - "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!"
