@@ -213,7 +213,11 @@
 
 	// rtl mode
 	$('#sg-mode-rtl').on('click', function() {
-		console.log("rtl-mode");
+		var link = $('#sg-viewport').contents().find('link[href*="style.css"]');
+		var href = link.attr('href');
+		var newhref = href.replace("style.css", "style-rtl.css");
+		link.attr('href', newhref);
+		$(this).hide();
 	});
 
 	//Stephen Hay Mode - "Start with the small screen first, then expand until it looks like shit. Time for a breakpoint!"
