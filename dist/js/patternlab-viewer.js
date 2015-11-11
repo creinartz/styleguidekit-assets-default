@@ -1514,7 +1514,9 @@ window.addEventListener("message", receiveIframeMessage, false);
 	// rtl mode
 	$('#sg-mode-rtl').on('click', function() {
 		var link = $('#sg-viewport').contents().find('link[href*="style.css"]');
+		var body = $('#sg-viewport').contents().find('body');
 		var href = link.attr('href');
+		body.attr('dir', 'rtl');
 		var newhref = href.replace("style.css", "style-rtl.css");
 		link.attr('href', newhref);
 		$(this).hide();
