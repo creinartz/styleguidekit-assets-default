@@ -70,7 +70,8 @@ var urlHandler = {
 		} else if (fileName !== "") {
 			fileName = baseDir+"/"+fileName.replace(regex,"-")+"/"+fileName.replace(regex,"-")+".html";
 		}
-		
+		console.log("x");
+		$('#sg-mode-rtl').removeClass("sg-mode-rtl--active");
 		return fileName;
 	},
 	
@@ -193,6 +194,7 @@ window.onpopstate = function (event) {
 	urlHandler.skipBack = true;
 	urlHandler.popPattern(event);
 };
+
 /*!
  * Annotations Support for the Viewer
  *
@@ -1513,12 +1515,14 @@ window.addEventListener("message", receiveIframeMessage, false);
 
 	// rtl mode
 	$('#sg-mode-rtl').on('click', function() {
-		var link = $('#sg-viewport').contents().find('link[href*="style.css"]');
-		var body = $('#sg-viewport').contents().find('body');
-		var href = link.attr('href');
-		body.attr('dir', 'rtl');
-		var newhref = href.replace("style.css", "style-rtl.css");
-		link.attr('href', newhref);
+		var linkTag = $sgViewport.contents().find('link[href*="style.css"]'),
+			bodyTag = $sgViewport.contents().find('body'),
+			linkTagHref = linkTag.attr('href'),
+			linkTagRtlHref;
+
+		bodyTag.attr('dir', 'rtl');
+		linkTagRtlHref = linkTagHref.replace("style.css", "style-rtl.css");
+		linkTag.attr('href', linkTagRtlHref);
 		$(this).addClass("sg-mode-rtl--active");
 	});
 
