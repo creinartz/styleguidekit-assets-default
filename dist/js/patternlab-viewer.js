@@ -70,7 +70,6 @@ var urlHandler = {
 		} else if (fileName !== "") {
 			fileName = baseDir+"/"+fileName.replace(regex,"-")+"/"+fileName.replace(regex,"-")+".html";
 		}
-		console.log("x");
 		$('#sg-mode-rtl').removeClass("sg-mode-rtl--active");
 		return fileName;
 	},
